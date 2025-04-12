@@ -1,0 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #0a2a43;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    width: 400px;
+    height: 500px;
+}
+
+.form {
+    position: absolute;
+    inset: 2px;
+    background: rgba(10, 42, 67, 0.75);
+    border-radius: 20px;
+    z-index: 10;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+.form h2 {
+    color: #45f3ff;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+.input-box {
+    position: relative;
+    margin: 20px 0;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1em;
+    transition: 0.5s;
+}
+
+.input-box input:focus {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.input-box label {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    color: rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.input-box input:valid~label,
+.input-box input:focus~label {
+    top: -10px;
+    left: 10px;
+    font-size: 0.8em;
+    color: #45f3ff;
+}
+
+button {
+    background: #45f3ff;
+    color: #0a2a43;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: 0.5s;
+    margin-top: 20px;
+}
+
+button:hover {
+    background: #2d9da8;
+    letter-spacing: 2px;
+}
+
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: animate 8s ease-in-out infinite;
+}
+
+@keyframes animate {
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+}
+
+.stars span {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    animation: twinkle 2s linear infinite;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes twinkle {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+.error-message {
+    color: #ff4545;
+    font-size: 0.9em;
+    margin-top: 10px;
+    display: none;
+}
+
+.comet {
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.6);
+    transform: rotate(-45deg);
+    animation: comet 10s linear infinite;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes comet {
+    0% {
+        transform: translate(-200px, -200px) rotate(-45deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(400px, 400px) rotate(-45deg);
+        opacity: 0;
+    }
+}
